@@ -1,0 +1,35 @@
+[{
+     "name": "Grape Juice",
+     "price": 10,
+     "imageAddress": "/assets/images/grapejuice.png",
+     "categoryId": "5bf1b12e8d1faa0d40ddb711",
+     "__v": 0
+},
+{
+     "name": "Tnuva Milk",
+     "categoryId": "5bf1b03f8052e7676cc23b3f",
+     "price": 8,
+     "imageAddress": "test",
+     "__v": 0
+},
+{
+     "name": "Water 1L",
+     "price": 2,
+     "imageAddress": "/assets/images/water1.png",
+     "categoryId": "5bf1b12e8d1faa0d40ddb711",
+     "__v": 0
+},
+{
+     "name": "Water 2L",
+     "price": 2,
+     "imageAddress": "/assets/images/water2.png",
+     "categoryId": "5bf1b12e8d1faa0d40ddb711",
+     "__v": 0
+},
+{
+     "name": "Tnuva Milk",
+     "categoryId": "5bf1b03f8052e7676cc23b3f",
+     "price": 8,
+     "imageAddress": "/assets/images/tnuvamilk.png"
+}
+]

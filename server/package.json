@@ -1,0 +1,20 @@
+{
+  "name": "proj",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node 01_controllers/index.js"
+  },
+  "engines": {
+    "node": "8.11.3"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.3.5"
+  }
+}
