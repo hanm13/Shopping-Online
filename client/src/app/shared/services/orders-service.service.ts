@@ -8,7 +8,8 @@ import { User } from '../models/user.model';
 @Injectable()
 export class OrdersService {
 
-    ordersCounterAPI = 'http://localhost:6200/api/count/orders';
+    // Heroku: https://sleepy-plains-48411.herokuapp.com - DEV: http://localhost:6200
+    mainAPIDomain: String = 'https://sleepy-plains-48411.herokuapp.com';
     ordersCounter: any = { count: 0};
     user: User;
     currentCreatedOrder: any = { order: undefined};
@@ -22,7 +23,7 @@ export class OrdersService {
 
     initOrdersCounter() {
 
-        this.myHttpClient.get(this.ordersCounterAPI)
+        this.myHttpClient.get(`${this.mainAPIDomain}/api/count/orders`)
         .subscribe((resp: any) => {
 
             this.ordersCounter.count = resp.counter;
@@ -33,7 +34,7 @@ export class OrdersService {
 
     createNewOrder(newOrderInfo) {
 
-        this.myHttpClient.post(`http://localhost:6200/api/orders/${this.user._id}`, newOrderInfo, {
+        this.myHttpClient.post(`${this.mainAPIDomain}/api/orders/${this.user._id}`, newOrderInfo, {
             headers: {
                 'xx-auth': `${this.user.token}` // authentication for request!
             }
@@ -55,7 +56,7 @@ export class OrdersService {
 
         return new Promise((resolve, reject) => {
 
-            this.myHttpClient.get(`http://localhost:6200/api/count/ordersdate/${date}`, {
+            this.myHttpClient.get(`${this.mainAPIDomain}/api/count/ordersdate/${date}`, {
                 headers: {
                     'xx-auth': `${this.user.token}` // authentication for request!
                 }

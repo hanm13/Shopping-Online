@@ -26,7 +26,7 @@
 
             <div class="form-group">
                 <label>Shipping Date:</label>
-                <input type="date" [min]="today" class="form-control" [value]="today" formControlName="shippingDate" />
+                <input type="date" [min]="today" class="form-control" formControlName="shippingDate" />
                 <p>{{orderForm.controls.shippingDate.errors?.err}}</p>
             </div>
 

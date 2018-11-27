@@ -3,3 +3,10 @@ div{
     margin-top: 125px;
     background-color: whitesmoke;
 }
+
+@media screen and (max-width: 480px) {
+    div{
+        margin-top: 25px;
+    }
+    
+}

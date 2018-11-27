@@ -85,3 +85,10 @@ span{
     word-wrap: break-word;
 
 }
+
+@media screen and (max-width: 480px) {
+    .myCartContainer{
+        margin-bottom: 10px;
+    }
+    
+}

@@ -133,3 +133,20 @@ button > span{
 .mat-card-header-text {
     margin: 0 !important;
 }
+
+@media screen and (max-width: 480px) {
+    .main-card{
+        left: 0;
+        width: 400px;
+        top: 40%;
+    }
+    .container_of_quantities{
+        left: 150px;
+    }
+    .button_add_inDialog{
+
+        left: 280px;
+
+    }
+    
+}

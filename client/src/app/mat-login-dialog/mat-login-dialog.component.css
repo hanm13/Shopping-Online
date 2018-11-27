@@ -6,6 +6,7 @@
     top: 30%;
     left: 40%;
     border: 1px solid black;
+    z-index: 1;
 }
 
 
@@ -36,4 +37,13 @@ button > span{
 
 .mat-card-header-text {
     margin: 0 !important;
+}
+
+@media screen and (max-width: 480px) {
+    .main-card{
+        left: 0;
+        width: 400px;
+        top: 40%;
+    }
+    
 }

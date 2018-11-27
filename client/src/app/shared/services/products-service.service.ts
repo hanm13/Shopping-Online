@@ -9,11 +9,8 @@ import { User } from '../models/user.model';
 @Injectable()
 export class ProductsService {
 
-    categoriesAPI = 'http://localhost:6200/api/categories';
-    productsByCategoryAPI = 'http://localhost:6200/api/products/category/';
-    productsByNameAPI = 'http://localhost:6200/api/products/';
-    productsCounterAPI = 'http://localhost:6200/api/count/products';
-
+    // Heroku: https://sleepy-plains-48411.herokuapp.com - DEV: http://localhost:6200
+    mainAPIDomain: String = 'https://sleepy-plains-48411.herokuapp.com';
 
     productsList: any = { products: [] };
     categoriesList: any = { categories: []};
@@ -31,7 +28,7 @@ export class ProductsService {
 
     initCategoriesList() {
 
-        this.myHttpClient.get(this.categoriesAPI)
+        this.myHttpClient.get(`${this.mainAPIDomain}/api/categories`)
             .subscribe((resp) => {
 
 
@@ -45,7 +42,7 @@ export class ProductsService {
 
     initProductsFromCategory(categoryID) {
 
-        this.myHttpClient.get(this.productsByCategoryAPI + categoryID)
+        this.myHttpClient.get(`${this.mainAPIDomain}/api/products/category/${categoryID}`)
             .subscribe((resp: any) => {
 
                 this.selectedProductsByCategory.products = <Product[]>resp.items;
@@ -57,7 +54,7 @@ export class ProductsService {
 
     initProductsByName(name) {
 
-        this.myHttpClient.get(this.productsByNameAPI + name)
+        this.myHttpClient.get(`${this.mainAPIDomain}/api/products/${name}`)
             .subscribe((resp: any) => {
 
                 this.selectedProductsByCategory.products = <Product[]>resp.items;
@@ -69,7 +66,7 @@ export class ProductsService {
 
     initProductsCounter() {
 
-        this.myHttpClient.get(this.productsCounterAPI)
+        this.myHttpClient.get(`${this.mainAPIDomain}/api/count/products`)
         .subscribe((resp: any) => {
 
             this.productsCounter.count = resp.counter;
@@ -86,7 +83,7 @@ export class ProductsService {
 
     editProduct(productInfo, categoryId= this.categoriesList.categories[0]._id) {
 
-        this.myHttpClient.put(`http://localhost:6200/api/products/${this.productForEdit.product._id}`, productInfo, {
+        this.myHttpClient.put(`${this.mainAPIDomain}/api/products/${this.productForEdit.product._id}`, productInfo, {
             headers: {
                 'xx-auth': `${this.user.token}` // authentication for request!
             }
@@ -102,7 +99,7 @@ export class ProductsService {
 
     addProduct(productInfo, categoryId= this.categoriesList.categories[0]._id) {
 
-        this.myHttpClient.post(`http://localhost:6200/api/products/`, productInfo, {
+        this.myHttpClient.post(`${this.mainAPIDomain}/api/products/`, productInfo, {
             headers: {
                 'xx-auth': `${this.user.token}` // authentication for request!
             }

@@ -21,6 +21,8 @@ export class AccountComponent implements OnInit {
   registerAvailableCities: any = {cities: []};
   formRegisterErrors = { 'msg': [] };
   loginError: any = {error: '' };
+  // Heroku: https://sleepy-plains-48411.herokuapp.com - DEV: http://localhost:6200
+  mainAPIDomain: String = 'https://sleepy-plains-48411.herokuapp.com';
 
 
   constructor(private myUserService: UserService, private myHttpClient: HttpClient, private matdialog: MatDialog) {
@@ -146,7 +148,7 @@ export class AccountComponent implements OnInit {
 
   initRegisterCities() {
 
-    this.myHttpClient.get('http://localhost:6200/api/cities')
+    this.myHttpClient.get(`${this.mainAPIDomain}/api/cities`)
     .subscribe((resp) => {
         this.registerAvailableCities.cities = resp;
     }, (err) => {

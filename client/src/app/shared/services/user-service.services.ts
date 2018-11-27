@@ -8,13 +8,15 @@ export class UserService {
     currentUser: User = { firstName: 'Guest', userName: 'Guest', token: undefined, cart: undefined, cartItems: undefined,
      state: 'shopping', orders: undefined};
      loginError: any = {error: '' };
+     // Heroku: https://sleepy-plains-48411.herokuapp.com - DEV: http://localhost:6200
+     mainAPIDomain: String = 'https://sleepy-plains-48411.herokuapp.com';
 
     constructor(private myHttpClient: HttpClient) {}
 
 
     loginUser(loginUser: User, callback?): void {
 
-        const apiUrl = `http://localhost:6200/api/users`;
+        const apiUrl = `${this.mainAPIDomain}/api/users`;
 
 
         const hashPassword = hash(loginUser.password);
@@ -67,7 +69,7 @@ export class UserService {
 
 
     registerUser(newUser: User): void {
-        const apiUrl = `http://localhost:6200/api/users`;
+        const apiUrl = `${this.mainAPIDomain}/api/users`;
         newUser.password = hash(newUser.password);
 
         this.myHttpClient.post(apiUrl, newUser, {observe: 'response'})
@@ -88,7 +90,7 @@ export class UserService {
 
         return new Promise((resolve, reject) => {
 
-            this.myHttpClient.post('http://localhost:6200/api/users/validateRegister', newUser, {observe: 'response'})
+            this.myHttpClient.post(`${this.mainAPIDomain}/api/users/validateRegister`, newUser, {observe: 'response'})
             .subscribe((resp) => {
                 resolve(resp);
             }, (err) => {
@@ -103,7 +105,7 @@ export class UserService {
 
     initUserOrders(): void {
 
-        const userOrdersAPI = 'http://localhost:6200/api/orders/';
+        const userOrdersAPI = `${this.mainAPIDomain}/api/orders/`;
 
 
         this.myHttpClient.get(userOrdersAPI + this.currentUser._id, {
@@ -113,7 +115,6 @@ export class UserService {
         .subscribe((resp: any) => {
 
             this.currentUser.orders = resp.orders;
-            console.log(this.currentUser.orders);
 
         });
 
@@ -121,7 +122,7 @@ export class UserService {
 
     initUserCart(): void {
 
-        const apiUrl = `http://localhost:6200/api/activecarts/${this.currentUser._id}`;
+        const apiUrl = `${this.mainAPIDomain}/api/activecarts/${this.currentUser._id}`;
 
 
         this.myHttpClient.get(apiUrl, {
@@ -137,7 +138,7 @@ export class UserService {
 
     initUserCartItems(): void {
 
-        const apiUrl = `http://localhost:6200/api/cartitems/${this.currentUser._id}`;
+        const apiUrl = `${this.mainAPIDomain}/api/cartitems/${this.currentUser._id}`;
 
 
         this.myHttpClient.get(apiUrl, {
@@ -168,7 +169,7 @@ export class UserService {
     addCartItem(product, amount) {
 
 
-            this.myHttpClient.post(`http://localhost:6200/api/cartitems/${this.currentUser._id}`,
+            this.myHttpClient.post(`${this.mainAPIDomain}/api/cartitems/${this.currentUser._id}`,
             {productID: product._id, amount: amount}, {
                 headers: {
                     'xx-auth': `${this.currentUser.token}` // authentication for request!
@@ -188,7 +189,7 @@ export class UserService {
     updateCartItem(cartItemID, amount) {
 
 
-        this.myHttpClient.put(`http://localhost:6200/api/cartitems/${cartItemID}`,
+        this.myHttpClient.put(`${this.mainAPIDomain}/api/cartitems/${cartItemID}`,
         {amount: amount, userID: this.currentUser._id}, {
             headers: {
                 'xx-auth': `${this.currentUser.token}` // authentication for request!
@@ -205,7 +206,7 @@ export class UserService {
 
     emptyCartItems() {
 
-        this.myHttpClient.delete(`http://localhost:6200/api/cartitems/empty/${this.currentUser.cart._id}`, {
+        this.myHttpClient.delete(`${this.mainAPIDomain}/api/cartitems/empty/${this.currentUser.cart._id}`, {
             headers: {
                 'xx-auth': `${this.currentUser.token}` // authentication for request!
             }
@@ -221,7 +222,7 @@ export class UserService {
 
     removeCartItem(cartItemID) {
 
-        this.myHttpClient.delete(`http://localhost:6200/api/cartitems/${cartItemID}`, {
+        this.myHttpClient.delete(`${this.mainAPIDomain}/api/cartitems/${cartItemID}`, {
             headers: {
                 'xx-auth': `${this.currentUser.token}` // authentication for request!
             }
