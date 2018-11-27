@@ -1,0 +1,13 @@
+<div id="container mh-100">
+
+  <div class="bg-info">
+
+    <a href="javascript:" *ngFor="let category of categories.categories; let i = index;" (click)="initProductsOfCategory(category._id)">
+      <span class="text-dark">{{category.name}}</span>
+      <span *ngIf="i != categories.categories.length -1">|</span>
+    </a>
+
+  </div>
+
+
+</div>

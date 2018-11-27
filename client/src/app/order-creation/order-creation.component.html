@@ -1,0 +1,56 @@
+<div class="flex-grow-0 bg-primary myOrderContainer">
+
+ 
+
+    <p class="myOrderBorder orderTextP">Order</p>
+
+    <div class="text-left shippingDiv">
+
+        <p class="myOrderBorder">Shipping Detailes</p>
+
+        <form [formGroup]="orderForm">
+
+            <div class="form-group">
+                <label>City:</label>
+                <select formControlName="city">
+                        <option *ngFor="let city of orderAvailableCities.cities" [ngValue]="city">{{city}}</option>
+                </select>
+                <p>{{orderForm.controls.city.errors?.err}}</p>
+            </div>
+
+            <div class="form-group">
+                <label>Street:</label>
+                <input type="text" class="form-control" formControlName="street" #streetInput (dblclick)="streetInput.value = user.street" />
+                <p>{{orderForm.controls.street.errors?.err}}</p>
+            </div>
+
+            <div class="form-group">
+                <label>Shipping Date:</label>
+                <input type="date" [min]="today" class="form-control" [value]="today" formControlName="shippingDate" />
+                <p>{{orderForm.controls.shippingDate.errors?.err}}</p>
+            </div>
+
+            <p class="myOrderBorder">Payments</p>
+
+            <div class="form-group">
+                <label>Credit Card:</label>
+                <input type="text"class="form-control" formControlName="visaDigits" #visaDigitsInput/>
+                <p>{{orderForm.controls.visaDigits.errors?.err}}</p>
+            </div>
+
+            <input class="btn btn-success" id="orderBtn" type="submit" [disabled]="orderForm.invalid" value="Order" (click)="createNewOrder()" />
+
+        </form>
+
+        <div class="contianer">
+
+          <p *ngFor="let error of orderFormErrors.errors">{{error}}</p>
+          
+        </div>
+
+    </div>
+
+
+
+
+  </div>

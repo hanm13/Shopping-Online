@@ -1,0 +1,32 @@
+ 
+ <div *ngIf="user.userName == 'Guest'">
+
+    <p class="text-center">Page is restricted, only logged in users can view it!</p>
+
+    <app-account></app-account>
+
+ </div>
+ 
+ <!--HOME PAGE-->
+ <div id="container mh-100" *ngIf="user.userName != 'Guest'">
+    <div _ngcontent-c0="" class="container-fluid searchBar">
+
+        <label>Search Products</label>
+        <input type="text" #product_search placeholder="Product Name" (keyup)="searchProductsByName(product_search.value)" />
+
+
+    </div>
+    <div class="d-flex row ml-auto homeFlex">
+        
+            
+        <app-my-cart *ngIf="user.state == 'shopping' || user.state == 'order'"></app-my-cart>
+        <app-add-edit-product *ngIf="user.state == 'admin'"></app-add-edit-product>
+
+        <div class="col-sm-7 flex-grow-0 bg-light homeContainerDiv">
+            
+            <app-products-navbar></app-products-navbar>
+            <app-products></app-products>
+
+        </div>
+      </div>
+</div>

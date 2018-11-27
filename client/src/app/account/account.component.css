@@ -1,0 +1,28 @@
+form{
+    max-width: 250px;
+    display: inline-block;
+    text-align: left;
+    margin-right: 40px;
+}
+input{
+    display: inline-block;
+    min-width: 300px;
+    border-radius: 3px;
+}
+.btn-default{
+min-height: 40px;
+background-color: #333;
+margin-top: 25px;
+}
+
+.change-mode{
+    display: block;
+    margin-top: 30px;  
+}
+.float-right{
+    float:right;
+}
+
+select{
+    color: black;
+}

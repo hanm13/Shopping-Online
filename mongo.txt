@@ -1,0 +1,2 @@
+use johnBryce for creating the DB.
+mongo --> use johnBryce --> db check

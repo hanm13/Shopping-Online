@@ -1,0 +1,131 @@
+<div class="col-xs-12 col-md-offset-3 col-md-6 bg-light" *ngIf="user.userName!='Guest'">
+
+
+
+    
+    <a class="btn btn-default" *ngIf="user.cartItems && user.cartItems.length > 0 && user.state !== 'admin'" href="javascript:" routerLink="/shopping">Resume Shopping</a>
+    <a class="btn btn-default" *ngIf="( (user.cartItems && user.cartItems.length == 0 ) || !user.cartItems ) && user.state !== 'admin'" href="javascript:" routerLink="/shopping">Start Shopping</a>
+    <a class="btn btn-default" *ngIf="user.state === 'admin'" href="javascript:" routerLink="/shopping">Add/Edit Products</a>
+
+
+</div>
+
+<div class="m-50 text-center" *ngIf="user.userName=='Guest'">
+    <div [ngSwitch]="state">
+        <div *ngSwitchCase="'login'">
+            <h2>Registered?</h2>
+            <form [formGroup]="loginForm">
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="User Name(Email)" formControlName="userName" />
+                    <p>{{loginForm.controls.userName.errors?.err}}</p>
+                </div>
+
+
+                <div class="form-group">
+                    <input type="password" class="form-control" formControlName="userPassword" placeholder="Password" />
+                    <p>{{loginForm.controls.userPassword.errors?.err}}</p>
+                </div>
+
+
+                <input class="form-control btn btn-default" type="submit" value="Login" (click)="loginUser()" />
+
+            </form>
+            <p>{{loginError.error}}</p>
+            <div class="change-mode">
+                <button class="float-right btn btn-default" (click)="changeState('register1')">Go to register</button>
+            </div>
+        </div>
+
+        <div *ngSwitchCase="'register1'">
+
+                <div class="text-center registerBorder">
+
+                    <p>Register Step 1</p>
+
+                </div>
+
+                <form [formGroup]="registerStepOneForm" class="m-10">
+    
+                    <div class="form-group">
+                        <label>Identity Number:</label>
+                        <input type="text" class="form-control" formControlName="personID" />
+                        <p>{{registerStepOneForm.controls.personID.errors?.err}}</p>
+                    </div>
+    
+                    <div class="form-group">
+                        <label>User Name(Email):</label>
+                        <input type="text" class="form-control" formControlName="userName" />
+                        <p>{{registerStepOneForm.controls.userName.errors?.err}}</p>
+                    </div>
+    
+                    <div class="form-group">
+                        <label>Password:</label>
+                        <input type="password" class="form-control" formControlName="userPassword" />
+                        <p>{{registerStepOneForm.controls.userPassword.errors?.err}}</p>
+                    </div>
+    
+                    <div class="form-group">
+                        <label>Password Confirm:</label>
+                        <input type="password" class="form-control" formControlName="userPasswordConfirm" />
+                        <p>{{registerStepOneForm.controls.userPasswordConfirm.errors?.err}}</p>
+                    </div>
+        
+                </form>
+                <div *ngIf="formRegisterErrors && formRegisterErrors.msg.length > 0">
+
+                    <h2 class="text-danger">Missing detailes: </h2>
+                    <p class="text-danger" *ngFor="let error of formRegisterErrors.msg; let i=index">{{i+1}}) {{error}}</p>
+
+                </div>
+                <div class="change-mode">
+                    <button class="float-right btn btn-default" [disabled]="registerStepOneForm.invalid" (click)="registerNextClick()">Next</button>
+                    <button class="btn btn-default" (click)="changeState('login')">Go to login</button>
+                </div>
+            </div>
+
+        <div *ngSwitchCase="'register2'">
+
+                <div class="text-center registerBorder">
+
+                    <p>Register Step 2</p>
+
+                </div>
+
+            <form [formGroup]="registerStepTwoForm">
+
+                <div class="form-group">
+                    <label>first Name:</label>
+                    <input type="text" class="form-control" formControlName="firstName" />
+                    <p>{{registerStepTwoForm.controls.firstName.errors?.err}}</p>
+                </div>
+
+                <div class="form-group">
+                    <label>last Name:</label>
+                    <input type="text" class="form-control" formControlName="lastName" />
+                    <p>{{registerStepTwoForm.controls.lastName.errors?.err}}</p>
+                </div>
+
+                <div class="form-group">
+                    <label>City:</label>
+                    <select formControlName="city">
+                            <option *ngFor="let city of registerAvailableCities.cities" [ngValue]="city">{{city}}</option>
+                    </select>
+                   <p>{{registerStepTwoForm.controls.city.errors?.err}}</p>
+                </div>
+
+                <div class="form-group">
+                    <label>Street:</label>
+                    <input type="text" class="form-control" formControlName="street" />
+                    <p>{{registerStepTwoForm.controls.street.errors?.err}}</p>
+                </div>
+
+                <input class="form-control btn btn-default" type="submit" [disabled]="registerStepTwoForm.invalid" value="Register" (click)="registerUser()" />
+
+            </form>
+            <div class="change-mode">
+                <button class="btn btn-default" (click)="changeState('login')">Go to login</button>
+            </div>
+        </div>
+    </div>
+</div>

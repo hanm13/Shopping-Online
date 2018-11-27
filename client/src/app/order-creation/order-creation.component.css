@@ -1,0 +1,33 @@
+.myOrderBorder{
+    border-bottom: 1px solid black;
+    
+}
+
+.myOrderContainer{
+    height: 680px;
+    width: 100%;
+}
+
+.orderTextP{
+
+  width: 75%;  
+
+}
+
+.shippingDiv{
+
+    width: 85%;
+    margin: 40px;
+}
+
+form{
+    width: 75%;
+}
+
+select{
+    color: black;
+}
+
+#orderBtn{
+    width: 100%;
+}

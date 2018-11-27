@@ -1,0 +1,40 @@
+<div id="container mh-100">
+    <div class="d-flex flex-row ml-auto homeFlex">
+
+      <div class="productItem" *ngFor="let product of selectedProductsByCategory.products; let i=index">
+
+        <img [src]="product.imageAddress" width="100" height="100">
+        <p>Name: {{product.name}}</p>
+        <p>Price: {{product.price}}</p>
+        <button class="btn-primary productBtn" *ngIf="user.state == 'shopping'" (click)="updateSelectedProductForCart(product)">Add</button>
+        <button class="btn-primary productBtn" *ngIf="user.state == 'admin'" (click)="editProduct(product)">Edit</button>
+
+      </div>
+
+    </div>
+
+</div>
+
+<!--
+
+
+<div class="addItemToCartDiv" *ngIf="selectedProductForCart.product != undefined">
+
+    <form>
+    
+        <div class="form-group">
+            <p>item: <span>{{selectedProductForCart.product.name}}</span></p>
+            <label>Amount: </label>
+            <input type="number" value="1" class="form-control" #productAmountInput />
+
+            
+
+            <button class="float-right btn btn-primary " class="addToCartBtn btn-primary" (click)="addItemToCartItems(selectedProductForCart.product, productAmountInput.value)">Add to cart</button>
+
+        </div>
+        
+    </form>
+</div>
+
+ -->
+

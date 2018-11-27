@@ -1,0 +1,74 @@
+ <!--HOME PAGE-->
+ <div id="container mh-100">
+    <div class="d-flex row ml-auto homeFlex">
+        <div class="col-sm-4 flex-grow-0 bg-primary homeContainerDiv"><!-- Login -->
+            
+            <app-account></app-account>
+
+
+        </div>
+        <div class="col-sm-4 flex-grow-0 bg-primary homeContainerDiv"><!-- Description -->
+            
+            <div class="w-50 h-50">
+                <h2>Why you should buy from us:</h2>
+                <ul>
+
+                    <li>Customer friendly e-commerce website to securely purchase items online.</li>
+                    <li>Customers save time and money buying from shopping online.</li>
+                    <li>Our store provides exceptional and extraordinary customer service with attention to detail.</li>
+                    <li>Items offered at best possible prices.</li>
+                    <li>Free gift wrapping & personalised service.</li>
+                    <li>Free delivery* to your doorstep by courier.</li>
+
+                </ul>
+                <span>* Checkout total price is more than 49.99$</span>
+                <div class="customerServiceBadge">
+                        <img width="150px" src='/assets/images/world-class-customer-service_large.png'/>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-sm-3 flex-grow-0 bg-primary homeContainerDiv"><!-- Statistics -->
+ 
+            <div class="w-50 h-50">
+
+                <img id="shopOnlineImg" width="400px" src='/assets/images/shoppingBanner.jpg'/>
+                <hr>
+               <p>Available products in our store: {{productsCounter.count}}</p>
+               <hr>
+               <p>Number of orders submitted in our store: {{ordersCounter.count}}</p>
+
+                <div class="notificationInfoContainer">
+
+                    <div class="notificationBlock" *ngIf="user.state != 'admin'">
+
+                        <div *ngIf="user.cartItems && user.cartItems.length > 0">
+
+                            You have open cart from date: <span>  {{user.cart.date | date}}</span>
+            
+                        </div>
+                        <div *ngIf="user.orders && user.orders.length > 0">
+        
+                            Your last purchase was on: <span>  {{user.orders[user.orders.length - 1].creationDate | date}}</span>
+        
+                        </div>
+                        <div *ngIf="user.userName != 'Guest' && !user.cartItems && !user.orders">
+        
+                            Welcome to your first purchase!
+        
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+                
+            </div>
+
+        </div>
+      </div>
+</div>

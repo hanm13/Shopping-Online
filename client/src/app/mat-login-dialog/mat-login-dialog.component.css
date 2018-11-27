@@ -1,0 +1,39 @@
+.main-card{
+    width: 500px;
+    height: 300px;
+    background-color:whitesmoke;
+    position: fixed;
+    top: 30%;
+    left: 40%;
+    border: 1px solid black;
+}
+
+
+.button_add_inDialog{
+    position: relative;
+    top: -92px;
+    left: 395px;
+}
+
+.btn:focus{
+    outline: none;
+}
+
+#close-icon{
+    margin-left: auto;
+    order: 2;
+    font-weight: bolder;
+}
+#close-icon:hover{
+cursor: pointer;
+}
+
+button > span{
+
+    right: 2px;
+
+}
+
+.mat-card-header-text {
+    margin: 0 !important;
+}

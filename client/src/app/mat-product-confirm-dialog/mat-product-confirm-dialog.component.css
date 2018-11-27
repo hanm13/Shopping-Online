@@ -1,0 +1,135 @@
+.main-card{
+    width: 500px;
+    height: 300px;
+    background-color:whitesmoke;
+    position: fixed;
+    top: 30%;
+    left: 40%;
+    border: 1px solid black;
+    /* top: calc(20% );
+    left: calc(50% - (300px – 2)); */
+    /* top: calc(50% - (300px / 2));
+    left: calc(50% - (300px – 2)); */
+
+    /* display:flex;
+    align-items:center; */
+}
+
+/* #dialog_add{
+    position: relative;
+    top: -77px;
+    left: 375px;
+} */
+
+.product_image_inDialog_container{
+    position: relative;
+    left: 205px;
+    top: -72px;
+}
+
+.product_image_inDialog{
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+
+.product_name_inDialog{
+    position: relative;
+
+}
+
+.product_price_inDialog{
+    position: relative;
+    top: 40px;
+}
+
+.product_total_price_inDialog{
+    position: relative;
+    top: -80px;
+}
+
+.container_of_quantities{
+    position: absolute;
+    top: 250px;
+    left: 240px;
+
+}
+
+.input_quantity_of_products{
+    position: relative;
+    width: 50px;
+    left: 20px;
+    padding-left: 8px;
+}
+
+.plus_product{
+    position: relative;
+    right: 60px;
+    width: 22px;
+    height: 22px;
+    bottom: 11px;
+    font-size: 10px;
+    /* margin: auto; */
+    /* vertical-align: middle; */
+    /* display: table-cell;
+    vertical-align: middle; */
+    /* padding-bottom: 8px; */
+
+
+}
+
+.minus_product{
+    position: relative;
+    top: 16px;
+    width: 22px;
+    height: 22px;
+    right: 82px;
+    font-size: 10px;
+}
+
+.per_unit_label{
+    position: relative;
+}
+
+.button_add_inDialog{
+    position: relative;
+    top: -92px;
+    left: 395px;
+}
+
+.product_total_price_input_inDialog{
+    position: relative;
+    width: 70px;
+    height: 30px;
+    left: 15px;
+    padding-left: 22px;
+}
+
+.dollar_sign_label_inDialog{
+    position: relative;
+    left: 12px;
+}
+
+.btn:focus{
+    outline: none;
+}
+
+#close-icon{
+    margin-left: auto;
+    order: 2;
+    font-weight: bolder;
+}
+#close-icon:hover{
+cursor: pointer;
+}
+
+button > span{
+
+    right: 2px;
+
+}
+
+.mat-card-header-text {
+    margin: 0 !important;
+}

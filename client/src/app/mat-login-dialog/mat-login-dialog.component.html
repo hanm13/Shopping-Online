@@ -1,0 +1,36 @@
+
+<mat-card class="main-card" *ngIf="user.userName != 'Guest'">
+	<mat-card-header>
+		<mat-card-title><strong>Welcome {{user.firstName}}!</strong></mat-card-title>
+    <mat-icon (click)="closeDialog()" id ="close-icon"><span class="glyphicon glyphicon-remove"></span></mat-icon>
+  </mat-card-header>
+  <hr/>
+  <mat-card-content>
+
+    <a class="btn btn-primary" (click)="closeDialog()" *ngIf="user.cartItems && user.cartItems.length > 0 && user.state !== 'admin'" href="javascript:" routerLink="/shopping">Resume Shopping</a>
+    <a class="btn btn-primary" (click)="closeDialog()" *ngIf="( (user.cartItems && user.cartItems.length == 0 ) || !user.cartItems ) && user.state !== 'admin'" href="javascript:" routerLink="/shopping">Start Shopping</a>
+    <a class="btn btn-primary" (click)="closeDialog()" *ngIf="user.state === 'admin'" href="javascript:" routerLink="/shopping">Add/Edit Products</a>
+
+    <div class="notificationBlock" *ngIf="user.state != 'admin'">
+
+      <div *ngIf="user.cartItems && user.cartItems.length > 0">
+
+          You have open cart from date: <span>  {{user.cart.date | date}}</span>
+
+      </div>
+      <div *ngIf="user.orders && user.orders.length > 0">
+
+          Your last purchase was on: <span>  {{user.orders[user.orders.length - 1].creationDate | date}}</span>
+
+      </div>
+      <div *ngIf="user.userName != 'Guest' && !user.cartItems && !user.orders">
+
+          Welcome to your first purchase!
+
+      </div>
+
+  </div>
+
+  </mat-card-content>
+
+</mat-card>

@@ -1,0 +1,29 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <img src=".\assets\images\logo.png"/>
+            <span id="profile">Welcome {{user?.firstName}} <span class="text-danger" *ngIf="user?.state == 'admin'"> - ADMIN MODE</span> <button *ngIf="user.firstName != 'Guest'" [routerLink]="['/home']" routerLinkActive="router-link-active"  class="form-control btn btn-primary" (click)="logout()">Logout</button>
+            </span>
+            
+        </div>
+        <div class="float-right contactUsDiv">
+            <p class="text-info">Contact : <span>{{store.phone}} - {{store.email}}</span></p>
+        </div>
+        <div id="myNavbar">
+
+            <ul class="nav navbar-nav navbar-right">
+
+
+                <li>
+                    <a routerLink="/home">HOME</a>
+                </li>
+
+                <li *ngIf="user.userName!='Guest'">
+                    <a routerLink="/shopping">SHOP</a>
+                </li>
+
+               
+            </ul>
+        </div>
+    </div>
+</nav>

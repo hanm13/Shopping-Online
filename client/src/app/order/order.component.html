@@ -1,0 +1,47 @@
+ 
+ <div *ngIf="user.userName == 'Guest'">
+
+    <p class="text-center">Page is restricted, only logged in users can view it!</p>
+
+    <app-account></app-account>
+
+ </div>
+
+ <div *ngIf="( !user.cartItems ||  user.cartItems.length == 0 ) && user.userName != 'Guest'">
+
+    <p class="text-center" *ngIf="!currentCreatedOrder.order">You don't have any cart items, you can not make any order! - <button class ="btn-dark" [routerLink]="['/shopping']" routerLinkActive="router-link-active" >Go back to shopping</button>    </p>
+    <div *ngIf="currentCreatedOrder.order !== undefined" class="successDivContainer">
+        <div class="successDiv">
+
+            <p class="text-center">Your purchase was successful!</p>
+            <p class="text-center">Download your receipt by clicking <a href="javascript:" (click)="getLastOrderFile()" >HERE</a></p>
+            <button class="btn text-center btn-success" (click)="resetCurrentUserOrder()" [routerLink]="['/shopping']" routerLinkActive="router-link-active" >Confirm</button>
+
+        </div>
+    </div>
+
+    
+</div>
+ 
+ <!--HOME PAGE-->
+ <div id="container mh-100" *ngIf="user.userName != 'Guest' && user.cartItems && user.cartItems.length > 0">
+    <div _ngcontent-c0="" class="container-fluid searchBar">
+
+        <label>Search Products</label>
+        <input type="text" #product_search placeholder="Product Name" (keyup)="searchCartItems(product_search.value)" />
+
+
+    </div>
+    
+    <div class="d-flex row ml-auto homeFlex">
+        
+            
+        <app-my-cart></app-my-cart>
+
+        <div class="col-sm-7 flex-grow-0 bg-light homeContainerDiv">
+            
+            <app-order-creation></app-order-creation>
+
+        </div>
+      </div>
+</div>

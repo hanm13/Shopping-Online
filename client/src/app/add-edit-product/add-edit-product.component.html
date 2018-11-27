@@ -1,0 +1,55 @@
+<div class="col-sm-4 flex-grow-0 bg-primary editAddProductContainer">
+
+    <div class="text-left editAddProductBorder editAddProductDiv">
+    
+      <p class="editAddProductP">
+        <span *ngIf="productForEdit.product && productForEdit.product._id">Edit: {{productForEdit.product.name}}</span>
+        <span *ngIf="productForEdit.product && !productForEdit.product._id">Add New Product</span>
+        <a id="addProductAnchor" href="javascript:" (click)="updateAddMode()" class="btn-danger float-right">
+          <span id="addProductSpan" class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </a>
+      </p>
+    </div>
+
+    <div *ngIf="productForEdit.product && productForEdit.product.name && productForEdit.product.name !='' || addMode">
+        <form [formGroup]="editAddForm">
+
+            <div class="form-group">
+                <label>Product Name:</label>
+                <input type="text" class="form-control" formControlName="name" [(ngModel)]="productForEdit.product.name" />
+                <p>{{editAddForm.controls.name.errors?.err}}</p>
+            </div>
+
+            <div class="form-group">
+                <label>Product Price:</label>
+                <input type="number" class="form-control" formControlName="price" [(ngModel)]="productForEdit.product.price" />
+                <p>{{editAddForm.controls.price.errors?.err}}</p>
+            </div>
+
+            <div class="form-group">
+                <label>Picture:</label>
+                <input type="text" class="form-control" formControlName="imageAddress" placeholder="/assets/images/imagename.png" [(ngModel)]="productForEdit.product.imageAddress" />
+                <p>{{editAddForm.controls.imageAddress.errors?.err}}</p>
+            </div>
+
+            <div class="form-group">
+                <label>Category: </label>
+                <select formControlName="category" [(ngModel)]= "productForEdit.product.categoryId">
+                        <option *ngFor="let category of categories.categories" [ngValue]="category._id">{{category.name}}</option>
+                </select>
+                <p>{{editAddForm.controls.category.errors?.err}}</p>
+            </div>
+
+            <input class="btn btn-success" id="orderBtn" type="submit" [disabled]="editAddForm.invalid" value="SAVE" (click)="editAddProduct()" />
+
+        </form>
+
+        <div class="contianer">
+
+          <span *ngFor="let error of editAddFormErrors.errors">{{error}}</span>
+          
+        </div>
+    </div>
+
+</div>
+

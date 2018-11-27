@@ -1,0 +1,47 @@
+img{
+    max-width: 600px;
+}
+
+h1{
+    font-size: 40px;
+    margin-bottom: 80px;
+}
+
+#address-info{
+    padding-top: 90px;
+}
+
+.homeContainerDiv{
+
+    min-height: 650px;
+    margin-right: 10px;
+}
+
+.homeFlex{
+
+    width: 90%;
+    position: relative;
+    left: 8%;
+
+}
+
+.notificationInfoContainer{
+
+    background-color: coral;
+
+}
+
+.notificationBlock{
+    margin: 5px;
+
+}
+
+.customerServiceBadge{
+    text-align: center;
+    margin-top: 50px;
+}
+
+#shopOnlineImg{
+    top: 5px;
+    position: relative;
+}

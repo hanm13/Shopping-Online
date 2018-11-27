@@ -1,0 +1,87 @@
+.myCartBorder{
+    border-bottom: 1px solid black;
+    
+}
+
+td{
+
+    padding: 10px;
+}
+
+.productSpan{
+    margin: 5px;
+}
+
+.tableContainer{
+    height: 480px;
+    overflow-y: scroll;
+    border-bottom: 1px solid black;
+    margin-top: 10px;
+}
+
+.myCartContainer{
+    resize: both;
+    overflow: auto;
+    height: 650px
+}
+
+span{
+    color:black;
+    margin-right:5px;
+}
+
+
+#left_panel {
+    position: absolute;
+    left: 0;
+    top: 90px;
+    height:100vh !important;
+    bottom: 0;
+    right: 100px;
+    background: #d1d1e0;
+}
+
+#right_panel {
+    position: absolute;
+    right: 0;
+    top: 90px;
+    height:100vh !important;
+    bottom: 0;
+    width: 200px;
+    color: #fff;
+    background:white;
+    height: 80%;
+    width: 70%;
+}
+
+#drag {
+    position: absolute;
+    left: -4px;
+    top: 0;
+    bottom: 0;
+    width: 8px;
+    cursor: w-resize;
+}
+
+.myCartDiv{
+    min-height: 50px;
+}
+
+.float-right{ float:right;}
+
+
+.myCartP{
+    margin-top: 5px;
+}
+
+.btnToShop{
+    margin-bottom: 5px;
+}
+
+.cartItemNameTD{
+
+    display: block;
+    width: 150px;
+    word-wrap: break-word;
+
+}

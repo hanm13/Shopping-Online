@@ -1,0 +1,43 @@
+.homeContainerDiv{
+
+    min-height: 650px;
+    margin-right: 10px;
+}
+
+.homeFlex{
+
+    width: 90%;
+    position: relative;
+    left: 9%;
+    margin: 0;
+
+}
+
+.searchBar{
+
+    position: relative;
+    font-family: Montserrat, sans-serif;
+    margin-bottom: 0;
+    background-color: #2d2d30;
+    border: 0;
+    font-size: 11px !important;
+    letter-spacing: 4px;
+    opacity: 0.9;
+    bottom: 24px;
+
+}
+
+
+.successDivContainer{
+    background-color: #337ab7;
+    color: black;
+}
+.successDiv{
+    text-align: center;
+}
+
+a{
+
+    color: black;
+    text-decoration: underline;
+}

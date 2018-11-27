@@ -1,0 +1,51 @@
+
+.editAddProductBorder{
+    border-bottom: 1px solid black;
+    
+}
+
+td{
+
+    padding: 10px;
+}
+
+.productSpan{
+    margin: 5px;
+}
+
+.tableContainer{
+    min-height: 520px;
+    overflow-y: scroll;
+    border-bottom: 1px solid black;
+    margin-top: 10px;
+}
+
+.editAddProductContainer{
+    resize: both;
+    overflow: auto;
+    height: 680px;
+}
+.float-right{ float:right;}
+
+.editAddProductDiv{
+
+    min-height: 35px;
+
+}
+
+select{
+
+    color:black;
+}
+
+#addProductAnchor{
+
+ width: 25px;
+ margin-top: 5px;
+}
+
+#addProductSpan{
+
+    left: 5px;
+   
+}

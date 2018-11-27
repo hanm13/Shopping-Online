@@ -1,0 +1,54 @@
+<div class="col-sm-4 flex-grow-0 bg-primary myCartContainer">
+
+    <div class="text-left myCartBorder myCartDiv">
+    
+      <p class="myCartP">My Cart <button *ngIf="user.state === 'shopping' && user.cartItems && user.cartItems.length > 0" (click)="emptyCartItems()" class="btn-danger float-right">Empty Cart Items</button>
+        <a *ngIf="user.state === 'order'" (click)="updateUserState('shopping')" class="btn btn-success float-right" id="orderBtn" href="javascript:" routerLink="/shopping">Back to shop</a>
+      </p>
+    </div>
+
+    <div *ngIf="user.cartItems && user.cartItems.length > 0">
+    
+        <div class="tableContainer">
+    
+          <table>
+    
+            <thead>
+              <th class="text-center">Product</th>
+              <th class="text-center">Name</th>
+              <th class="text-center">Quantity</th>
+              <th class="text-center">Price</th>
+              <th class="text-center">Total Price</th>
+            </thead>
+    
+            <tr *ngFor = "let cartitem of user.cartItems">
+    
+              <td><a *ngIf="user.state === 'shopping'" (click)="removeCartItem(cartitem._id)" class="text-dark" href="javascript:"><span class="glyphicon glyphicon-remove"></span></a> <img [src]="cartitem.imageAddress" width="100"></td>
+              
+              <div [ngSwitch]="cartItemSearch.cartItems.includes(cartitem.name) && user.state === 'order'">
+                  <td *ngSwitchCase = "true" ><span class="productSpan bg-warning cartItemNameTD">{{cartitem.name}}</span></td>
+                  <td *ngSwitchCase = "false" ><span class="productSpan cartItemNameTD">{{cartitem.name}}</span></td>
+
+              </div>
+
+
+
+              <td class="cartItemAmountTD"><span class="productSpan">{{cartitem.amount}}</span></td>
+              <td><span class="productSpan">{{cartitem.priceSingle}}$</span></td>
+              <td class="cartItemTotalPriceTD"><span class="productSpan ">{{cartitem.totalPrice}}$</span></td>
+    
+            </tr>
+    
+          </table>
+          
+    
+        </div>
+        <div>
+            <p>Total: {{user.cart.totalPrice}}$</p>
+            <a *ngIf="user.state === 'shopping'" (click)="updateUserState('order')" class="btn btn-success float-right btnToShop"  href="javascript:" routerLink="/order">Order</a>
+        </div>
+    
+    </div>
+
+</div>
+
