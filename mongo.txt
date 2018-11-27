@@ -1,2 +1,2 @@
-use johnBryce for creating the DB.
-mongo --> use johnBryce --> db check
+use shoppingOnline for creating the DB.
+mongo --> use shoppingOnline --> db check
