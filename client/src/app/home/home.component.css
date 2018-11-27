@@ -44,4 +44,9 @@ h1{
 #shopOnlineImg{
     top: 5px;
     position: relative;
+    width: 100%;
+}
+
+.infoContainer{
+    max-width: 350px;
 }
