@@ -32,7 +32,7 @@ export class AccountComponent implements OnInit {
 
     const loginGroupConfig = {
       userName: this.getFormControl(2, 15, 'User name'),
-      userPassword: this.getFormControl(5, 10, 'Password')
+      userPassword: this.getFormControl(6, 16, 'Password')
     };
 
 
@@ -42,7 +42,15 @@ export class AccountComponent implements OnInit {
         // Pattern: https://github.com/AnnaKarpf/Full-stack-4578_25/blob/master/02_Angular/Day%2007%20-%2013.09.2018/Homework.docx
         personID: this.getPersonIDFormControl(),
 
-        userName: this.getFormControl(2, 15, 'User name'),
+        userName: new FormControl('', [
+          f => (!f.value ?  { err: `` } : null),
+          f => (!f.value && !f.pristine ? { err: `User name is required` } : null),
+          f => f.value && f.value.length > 30 ? { err: `User name is max 30 chars` } : null,
+          f => f.value && f.value.length < 2 ? { err: `User name is min 2 chars` } : null,
+          f => f.value && !this.isValidEmailAddress(f.value) ? { err: `Invalid email address!` } : null,
+
+        ]),
+
         userPassword: this.getFormControl(6, 16, 'Password'),
         userPasswordConfirm: new FormControl('', [
           f => (!f.value ?  { err: `` } : null),
@@ -67,6 +75,14 @@ export class AccountComponent implements OnInit {
     this.registerStepTwoForm = new FormGroup(registerStepTwoGroupConfig);
 
   } // end constructor funciton
+
+  isValidEmailAddress(B) {
+    const A = new RegExp(
+      // tslint:disable-next-line:max-line-length
+      /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/i
+    );
+    return A.test(B);
+  }
 
   getPersonIDFormControl() {
 

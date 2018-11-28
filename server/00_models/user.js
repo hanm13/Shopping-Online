@@ -20,7 +20,7 @@ let userSchema = new mongoose.Schema(
             required: true,
             unique: true,
             minlength: 2,
-            maxlength: 15
+            maxlength: 30
         },
         password: {
             type: String,
