@@ -149,7 +149,7 @@ export class UserService {
 
                 this.currentUser.cartItems = resp.cartitems;
 
-                if(this.currentUser.cartItems.length > 0) {
+                if (this.currentUser.cartItems.length > 0) {
 
                     this.currentUser.cart.totalPrice = this.calculateTotalCartItemsPrice(this.currentUser.cartItems);
 

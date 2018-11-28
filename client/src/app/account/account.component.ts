@@ -31,7 +31,7 @@ export class AccountComponent implements OnInit {
     this.loginError = this.myUserService.loginError;
 
     const loginGroupConfig = {
-      userName: this.getFormControl(2, 15, 'User name'),
+      userName: this.getFormControl(2, 30, 'User name'),
       userPassword: this.getFormControl(6, 16, 'Password')
     };
 
@@ -64,8 +64,8 @@ export class AccountComponent implements OnInit {
 
       firstName: this.getFormControl(2, 15, 'First name'),
       lastName: this.getFormControl(2, 15, 'Last name'),
-      city: this.getFormControl(2, 99, 'City'),
-      street: this.getFormControl(2, 99, 'Street'),
+      city: this.getFormControl(2, 25, 'City'),
+      street: this.getFormControl(2, 25, 'Street'),
 
 
   };
