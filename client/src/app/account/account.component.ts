@@ -42,7 +42,7 @@ export class AccountComponent implements OnInit {
         // Pattern: https://github.com/AnnaKarpf/Full-stack-4578_25/blob/master/02_Angular/Day%2007%20-%2013.09.2018/Homework.docx
         personID: this.getPersonIDFormControl(),
 
-        userName: this.getFormControl(2, 45, 'User name'),
+        userName: this.getFormControl(2, 15, 'User name'),
         userPassword: this.getFormControl(6, 16, 'Password'),
         userPasswordConfirm: new FormControl('', [
           f => (!f.value ?  { err: `` } : null),
@@ -56,8 +56,8 @@ export class AccountComponent implements OnInit {
 
       firstName: this.getFormControl(2, 15, 'First name'),
       lastName: this.getFormControl(2, 15, 'Last name'),
-      city: this.getFormControl(1, 99, 'City'),
-      street: this.getFormControl(1, 99, 'Street'),
+      city: this.getFormControl(2, 99, 'City'),
+      street: this.getFormControl(2, 99, 'Street'),
 
 
   };

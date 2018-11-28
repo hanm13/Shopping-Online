@@ -11,16 +11,19 @@ let orderSchema = new mongoose.Schema({
     },
     totalPrice: {
         type: Number,
-        default: true,
-        required: true,
+        required: true
     },
     city: {
         type: String,
         required: true,
+        minlength: 2,
+        maxlength: 25
     },
     street: {
         type: String,
         required: true,
+        minlength: 2,
+        maxlength: 25
     },
     shippingDate: {
         type: String,
@@ -34,6 +37,8 @@ let orderSchema = new mongoose.Schema({
     visaDigits: {
         type: String,
         required: true,
+        minlength: 4,
+        maxlength: 4
     },
 });
 
