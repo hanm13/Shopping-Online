@@ -90,5 +90,10 @@ span{
     .myCartContainer{
         margin-bottom: 10px;
     }
-    
+    .cartItemNameTD{
+        width: 40px;
+    }
+    .myCartContainer{
+        padding: 5px;
+    }
 }

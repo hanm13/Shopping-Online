@@ -44,6 +44,7 @@ button > span{
         left: 0;
         width: 400px;
         top: 40%;
+        z-index: 1030;
     }
     
 }

@@ -9,7 +9,7 @@ export class UserService {
      state: 'shopping', orders: undefined};
      loginError: any = {error: '' };
      // Heroku: https://sleepy-plains-48411.herokuapp.com - DEV: http://localhost:6200
-     mainAPIDomain: String = 'http://localhost:6200';
+     mainAPIDomain: String = 'https://sleepy-plains-48411.herokuapp.com';
 
     constructor(private myHttpClient: HttpClient) {}
 

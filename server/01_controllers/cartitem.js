@@ -242,8 +242,8 @@ let init = (app) => {
                 cart.CartModel.findOne({"_id":item.cartID, "active":true})
                 .then(userCart => {
 
-
                     return userCart;
+
                 })
                 .then((userCart)=>{
 
@@ -356,7 +356,7 @@ reponse:
 < Date: Tue, 20 Nov 2018 11:17:49 GMT
 < Connection: keep-alive
 <
-Deleted!* Connection #0 to host localhost left intact
+{"cartitems":[{"_id":"5bfe706c4c97ac00155af0e4","productID":"5bfd47e102dc4f0015b9e5d7","amount":1,"cartID":"5bfe470c4fbbae0015b88414","totalPrice":10,"__v":0,"imageAddress":"/assets/images/tnuvamilk.png","name":"Tnuva","priceSingle":10}]}* Connection #0 to host localhost left intact
 
 */
 

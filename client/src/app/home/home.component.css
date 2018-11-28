@@ -50,3 +50,11 @@ h1{
 .infoContainer{
     max-width: 350px;
 }
+
+@media screen and (max-width: 480px) {
+    .homeContainerDiv{
+        margin-right: 0px;
+        margin-top: 15px;
+    }
+
+}

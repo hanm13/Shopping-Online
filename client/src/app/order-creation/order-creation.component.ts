@@ -17,6 +17,8 @@ export class OrderCreationComponent implements OnInit {
   orderForm: FormGroup;
   orderFormErrors: any = { errors: []};
   today: String;
+  // Heroku: https://sleepy-plains-48411.herokuapp.com - DEV: http://localhost:6200
+  mainAPIDomain: String = 'https://sleepy-plains-48411.herokuapp.com';
 
   constructor(private myUserService: UserService, private myOrderService: OrdersService, private myHttpClient: HttpClient) {
 
@@ -55,7 +57,7 @@ export class OrderCreationComponent implements OnInit {
 
   initOrderCities() {
 
-    this.myHttpClient.get('http://localhost:6200/api/cities')
+    this.myHttpClient.get(`${this.mainAPIDomain}/api/cities`)
     .subscribe((resp) => {
         this.orderAvailableCities.cities = resp;
     }, (err) => {
