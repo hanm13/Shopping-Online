@@ -10,7 +10,7 @@ import { User } from '../models/user.model';
 export class ProductsService {
 
     // Heroku: https://sleepy-plains-48411.herokuapp.com - DEV: http://localhost:6200
-    mainAPIDomain: String = 'https://sleepy-plains-48411.herokuapp.com';
+    mainAPIDomain: String = 'http://localhost:6200';
 
     productsList: any = { products: [] };
     categoriesList: any = { categories: []};

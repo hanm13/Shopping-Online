@@ -38,7 +38,19 @@ let init = (app) => {
     // Add client - REGISTER: 
     app.post("/api/users", userExistsMiddleWare.middleware, (req, res) => {
 
-        let registerUser = new user.UserModel(req.body);
+        let newUserObj = {
+
+            personID: req.body.personID,
+            userName: req.body.userName,
+            password: req.body.password,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            city: req.body.city,
+            street: req.body.street
+
+        };
+
+        let registerUser = new user.UserModel(newUserObj);
 
         registerUser.save()
             .then(newUser => {
