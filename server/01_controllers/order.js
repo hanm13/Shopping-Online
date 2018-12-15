@@ -8,9 +8,9 @@ let init = (app) => {
 
     // Get all user orders by user ID.
 
-    app.get("/api/orders/:q", userMiddleware.middleware, (req, res) => {
+    app.get("/api/orders/:userID", userMiddleware.middleware, (req, res) => {
 
-        order.OrderModel.find({"userID":req.params.q})
+        order.OrderModel.find({"userID":req.params.userID})
         .then(orders => {
  
             res.status(200).send(JSON.stringify({"orders":orders}));
@@ -39,9 +39,9 @@ let init = (app) => {
     });
 
     // Create new order by userID
-    app.post("/api/orders/:q", userMiddleware.middleware, (req, res) => {
+    app.post("/api/orders/:userID", userMiddleware.middleware, (req, res) => {
 
-        cart.CartModel.findOne({"userID":req.params.q, "active":true})
+        cart.CartModel.findOne({"userID":req.params.userID, "active":true})
         .then(userCart => {
 
             return userCart;
@@ -61,7 +61,7 @@ let init = (app) => {
                     
                 }
 
-                let newOrder = new order.OrderModel({...req.body, userID:req.params.q , cartID:userCart._id, "totalPrice": totalProductsPrice}); // item info
+                let newOrder = new order.OrderModel({...req.body, userID:req.params.userID , cartID:userCart._id, "totalPrice": totalProductsPrice}); // item info
     
                 newOrder.save()
                     .then(() => {
@@ -71,7 +71,7 @@ let init = (app) => {
                         userCart.active = false;
                         userCart.save().then(()=>{
 
-                            order.OrderModel.find({"userID": req.params.q}).then((orders)=>{
+                            order.OrderModel.find({"userID": req.params.userID}).then((orders)=>{
 
                                 res.status(200).send({"orders": orders});
 
@@ -102,7 +102,7 @@ let init = (app) => {
 
     app.delete("/api/orders/:q", userMiddleware.middleware, (req, res) =>{
 
-        order.OrderModel.deleteOne({_id: req.params.q})
+        order.OrderModel.deleteOne({_id: req.params.userID})
         .then(() => {
 
             res.status(200).send("Deleted!");

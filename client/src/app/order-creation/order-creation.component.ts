@@ -18,7 +18,7 @@ export class OrderCreationComponent implements OnInit {
   orderFormErrors: any = { errors: []};
   today: String;
   // Heroku: https://sleepy-plains-48411.herokuapp.com - DEV: http://localhost:6200
-  mainAPIDomain: String = 'https://sleepy-plains-48411.herokuapp.com';
+  mainAPIDomain: String = 'http://localhost:6200';
 
   constructor(private myUserService: UserService, private myOrderService: OrdersService, private myHttpClient: HttpClient) {
 

@@ -22,7 +22,7 @@ export class AccountComponent implements OnInit {
   formRegisterErrors = { 'msg': [] };
   loginError: any = {error: '' };
   // Heroku: https://sleepy-plains-48411.herokuapp.com - DEV: http://localhost:6200
-  mainAPIDomain: String = 'https://sleepy-plains-48411.herokuapp.com';
+  mainAPIDomain: String = 'http://localhost:6200';
 
 
   constructor(private myUserService: UserService, private myHttpClient: HttpClient, private matdialog: MatDialog) {

@@ -1,7 +1,7 @@
 {
-  "name": "proj",
+  "name": "Shopping-Online",
   "version": "1.0.0",
-  "description": "",
+  "description": "Shopping Online - School Project",
   "main": "index.js",
   "scripts": {
     "start": "node 01_controllers/index.js"

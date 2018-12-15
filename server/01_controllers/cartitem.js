@@ -7,9 +7,9 @@ let init = (app) => {
 
     // Get all cart items from the active cart of the user by user ID.
 
-    app.get("/api/cartitems/:q", userMiddleware.middleware, (req, res) => {
+    app.get("/api/cartitems/:userID", userMiddleware.middleware, (req, res) => {
 
-        cart.CartModel.findOne({"userID":req.params.q, "active":true})
+        cart.CartModel.findOne({"userID":req.params.userID, "active":true})
         .then(cart => {
  
             if(cart){
@@ -133,22 +133,20 @@ let init = (app) => {
     }
 
     // Create new cart item for user by ID
-    app.post("/api/cartitems/:q", userMiddleware.middleware, (req, res) => {
+    app.post("/api/cartitems/:userID", userMiddleware.middleware, (req, res) => {
 
-        cart.CartModel.findOne({"userID":req.params.q, "active":true})
+        cart.CartModel.findOne({"userID":req.params.userID, "active":true})
         .then(async userCart => {
 
             if(!userCart){
 
-                userCart = await createNewUserCart(req.params.q);
+                userCart = await createNewUserCart(req.params.userID);
 
             }
 
             return userCart;
 
         }).then((userCart)=>{
-
-            console.log("User cart ID:", userCart._id);
 
             cartItem.CartItemModel.findOne({"cartID": userCart._id, "productID":req.body.productID})
             .then(product => {
@@ -195,9 +193,9 @@ let init = (app) => {
 
     // Update cart item by item cart ID
 
-    app.put("/api/cartitems/:q", userMiddleware.middleware, (req, res) =>{
+    app.put("/api/cartitems/:cartID", userMiddleware.middleware, (req, res) =>{
 
-        cartItem.CartItemModel.findOne({_id: req.params.q})
+        cartItem.CartItemModel.findOne({_id: req.params.cartID})
         .then(cartItem => {
 
             getProductTotalPriceByID(cartItem.productID, req.body.amount).then((totalPrice)=> {
@@ -228,15 +226,15 @@ let init = (app) => {
 
     // Delete cart item by cartID
 
-    app.delete("/api/cartitems/:q", userMiddleware.middleware, (req, res) =>{
+    app.delete("/api/cartitems/:cartID", userMiddleware.middleware, (req, res) =>{
 
-        cartItem.CartItemModel.findOne({"_id":req.params.q})
+        cartItem.CartItemModel.findOne({"_id":req.params.cartID})
         .then(item => {
             return item;
         })
         .then((item)=>{
 
-            cartItem.CartItemModel.deleteOne({_id: req.params.q})
+            cartItem.CartItemModel.deleteOne({_id: req.params.cartID})
             .then(() => {
     
                 cart.CartModel.findOne({"_id":item.cartID, "active":true})
@@ -270,9 +268,9 @@ let init = (app) => {
 
     // Delete cart items by cart ID
 
-    app.delete("/api/cartitems/empty/:q", userMiddleware.middleware, (req, res) =>{
+    app.delete("/api/cartitems/empty/:cartID", userMiddleware.middleware, (req, res) =>{
 
-        cartItem.CartItemModel.deleteMany({cartID: req.params.q})
+        cartItem.CartItemModel.deleteMany({cartID: req.params.cartID})
         .then(() => {
 
             res.status(200).send();

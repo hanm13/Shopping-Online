@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const product = require('../../00_models/product');
 const user = require('../../00_models/user');
 
 let userMiddlware = (req, res, nextStep) => {
@@ -18,6 +17,8 @@ let userMiddlware = (req, res, nextStep) => {
             }).then(counter => {
                 if (counter) {
                     req.params._id = decodedId;
+                    req.params.userID = decodedId;
+                    req.body.userID = decodedId;
                     nextStep();
                 } else {
                     res.status(401).send();

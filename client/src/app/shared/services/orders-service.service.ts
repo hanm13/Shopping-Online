@@ -9,7 +9,7 @@ import { User } from '../models/user.model';
 export class OrdersService {
 
     // Heroku: https://sleepy-plains-48411.herokuapp.com - DEV: http://localhost:6200
-    mainAPIDomain: String = 'https://sleepy-plains-48411.herokuapp.com';
+    mainAPIDomain: String = 'http://localhost:6200';
     ordersCounter: any = { count: 0};
     user: User;
     currentCreatedOrder: any = { order: undefined};
