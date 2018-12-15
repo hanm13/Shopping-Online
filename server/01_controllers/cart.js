@@ -6,9 +6,9 @@ const userMiddleware = require("./middlewares/user")
 let init = (app) => {
 
     // Get all carts by user ID
-    app.get("/api/carts/:q", userMiddleware.middleware, (req, res) => {
+    app.get("/api/carts/:userID", userMiddleware.middleware, (req, res) => {
 
-        cart.CartModel.find({"userID":req.params.q})
+        cart.CartModel.find({"userID":req.params.userID})
         .then(carts => {
             res.status(200).send(JSON.stringify({"carts":carts}));
         })
@@ -17,9 +17,9 @@ let init = (app) => {
     });
 
     // Get user active carts by user ID
-    app.get("/api/activecarts/:q", userMiddleware.middleware, (req, res) => {
+    app.get("/api/activecarts/:userID", userMiddleware.middleware, (req, res) => {
 
-        cart.CartModel.find({"userID":req.params.q, "active":true})
+        cart.CartModel.find({"userID":req.params.userID, "active":true})
         .then(carts => {
             res.status(200).send(JSON.stringify({"carts":carts}));
         })
@@ -64,14 +64,14 @@ let init = (app) => {
 
     // Update cart by ID
 
-    app.put("/api/carts/:q", userMiddleware.middleware, (req, res) =>{
+    app.put("/api/carts/:cartID", userMiddleware.middleware, (req, res) =>{
 
-        cart.CartModel.findOne({_id: req.params.q})
+        cart.CartModel.findOne({_id: req.params.cartID})
         .then(cart => {
 
-            cart.userID = req.body.userID;
             cart.date = req.body.price;
             cart.active = req.body.active;
+
             cart.save();
             res.status(200).send(cart);
         })
@@ -81,9 +81,9 @@ let init = (app) => {
 
     // Delete cart by ID
 
-    app.delete("/api/carts/:q", userMiddleware.middleware, (req, res) =>{
+    app.delete("/api/carts/:cartID", userMiddleware.middleware, (req, res) =>{
 
-        cart.CartModel.deleteOne({_id: req.params.q})
+        cart.CartModel.deleteOne({_id: req.params.cartID})
         .then(() => {
 
             res.status(200).send("Deleted!");
