@@ -6,7 +6,7 @@ let init = (app) => {
     category.CategoryModel.count({})
     .then(counter=>{
         if(!counter){
-            category.CategoryModel.insertMany(require("./../00_models/categories.json")) // will insert products by default
+            category.CategoryModel.insertMany(require("./../00_models/categories.json")) // will insert categories by default
         }
     });
 
