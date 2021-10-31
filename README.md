@@ -1,4 +1,4 @@
-# John Bryce: Shopping Online - Final Project
+# John Bryce: Shopping Online - Final Project (NodeJS & MongoDB)
 # LIVE DEMO: https://sleepy-plains-48411.herokuapp.com
 
 # Implementations
