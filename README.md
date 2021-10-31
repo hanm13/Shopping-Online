@@ -1,3 +1,4 @@
+# John Bryce: Shopping Online - Final Project
 # LIVE DEMO: https://sleepy-plains-48411.herokuapp.com
 
 # Shopping Online
@@ -8,38 +9,47 @@
 * Create order and get receipt as file
 * Admin: Create and edit products
 
-## topics:
+## Topics
 
-### HTML + CSS :
+### HTML + CSS:
 * HTML5 Structre
 * Bootstrap Design
 
-### Angular
+### Angular 5
 
-### NodeJS :
+### NodeJS:
 
-1. Mogoose(MongoDB)
+1. MongoDB (With Mogoose)
 2. Express(Server)
 
 ### MongoDB
 
-- Design & Create collections (user, products, cart, cartItems, orders, cities, categories )
+- Design & Create collections (user, products, cart, cartItems, orders, cities, categories)
 
 
 ***
 
 ## Requirements:
 
-1. NPM: jsonwebtoken, express, mongoose, body-parser, nodemon
-2. NodeJS, Angular.
+1. Node.js source code or a pre-built installer for your platform
 
+2. The following Node packages:
+
+'jsonwebtoken' - authentication.
+'express' - http server
+'mongoose' - database schema management
+'body-parser' - HTTP requests Middleware (body-parser)
+
+3. Angular 5 - framework
+
+4. MongoDB - database
 
 
 ## How to run:
 
  nodemon ./server/01_controllers/index.js
 
- Create admin user: Create user with the username: manager or set user role to 1.
+ Creating admin user: Create new user with the username of 'manager' or set user 'role' to '1' (number) in the MongoDB.
 
 ***
 

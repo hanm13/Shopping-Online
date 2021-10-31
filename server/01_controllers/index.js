@@ -1,20 +1,20 @@
 // Requires (from node_modules):
 const express = require("express"); 
 const bodyParser = require("body-parser"); 
-const path=require('path');
+const path = require('path');
 
 
 // Requires (to activate this file that opens the connection to the DB):
 const index = require('./../00_models/index');
 
 // Requires (from current folder - to add controllers to our express app):
-const product=require('./product');
-const user=require('./user');
-const cities=require('./cities');
-const category=require('./category');
-const cart=require('./cart');
-const cartItems=require('./cartitem');
-const order=require('./order');
+const product = require('./product');
+const user = require('./user');
+const cities = require('./cities');
+const category = require('./category');
+const cart = require('./cart');
+const cartItems = require('./cartitem');
+const order = require('./order');
 
 
 // Create express app:
