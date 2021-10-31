@@ -1,12 +1,11 @@
 # John Bryce: Shopping Online - Final Project
 # LIVE DEMO: https://sleepy-plains-48411.herokuapp.com
 
-# Shopping Online
-* Online shopping store
+# Implementations
 
-* Login & Register for customers.
+* Login & Register for customers
 * Products list and user cart items
-* Create order and get receipt as file
+* Create an order and get receipt as a file
 * Admin: Create and edit products
 
 ## Topics
