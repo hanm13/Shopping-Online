@@ -1,0 +1,11 @@
+{"_id":{"$oid":"5bfd47e102dc4f0015b9e5d7"},"categoryId":"5bfd467604b33900150c39cf","name":"Tnuva","price":{"$numberInt":"10"},"imageAddress":"/assets/images/tnuvamilk.png","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5bfd480d02dc4f0015b9e5d8"},"categoryId":"5bfd467604b33900150c39cc","name":"Tara","price":{"$numberInt":"2"},"imageAddress":"/assets/images/taramilk.jpg","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5bfd484c02dc4f0015b9e5d9"},"categoryId":"5bfd467604b33900150c39cd","name":"test1","price":{"$numberInt":"2"},"imageAddress":"https://i.ytimg.com/vi/5457-9camVY/maxresdefault1.jpg","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5bfd487102dc4f0015b9e5dc"},"categoryId":"5bfd467604b33900150c39cd","name":"Water 3 Litter","price":{"$numberInt":"2"},"imageAddress":"/assets/images/water1.png","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5bfd489f02dc4f0015b9e5dd"},"categoryId":"5bfd467604b33900150c39cd","name":"Water 2 Litter","price":{"$numberDouble":"1.5"},"imageAddress":"/assets/images/water1.png","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5bfd48b802dc4f0015b9e5de"},"categoryId":"5bfd467604b33900150c39cd","name":"Coca Cola","price":{"$numberInt":"2"},"imageAddress":"/assets/images/cola.png","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5bfd48c202dc4f0015b9e5df"},"categoryId":"5bfd467604b33900150c39cd","name":"Fanta","price":{"$numberInt":"2"},"imageAddress":"/assets/images/fanta.jpg","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5bfd491b02dc4f0015b9e5e1"},"categoryId":"5bfd467604b33900150c39cd","name":"Grape Juice","price":{"$numberInt":"3"},"imageAddress":"/assets/images/grapejuice.png","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5bfd493302dc4f0015b9e5e2"},"categoryId":"5bfd467604b33900150c39cf","name":"Tuna 300G","price":{"$numberInt":"5"},"imageAddress":"/assets/images/tuna.jpg","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5bfd494502dc4f0015b9e5e3"},"categoryId":"5bfd467604b33900150c39d0","name":"Jack Daniels 750M","price":{"$numberInt":"5"},"imageAddress":"/assets/images/jackdaniels.jpg","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c261fa77ac9120015778314"},"categoryId":"5bfd467604b33900150c39cd","name":"Coca-Cola Light Lemon","price":{"$numberInt":"1"},"imageAddress":"http://www.nurarolls.com/images/light.jpg","__v":{"$numberInt":"0"}}

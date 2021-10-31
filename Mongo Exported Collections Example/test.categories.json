@@ -1,0 +1,4 @@
+{"_id":{"$oid":"5bfd467604b33900150c39cd"},"name":"Drinks","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5bfd467604b33900150c39d0"},"name":"Alcohol","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5bfd467604b33900150c39cf"},"name":"Meat and Fish","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5bfd467604b33900150c39cc"},"name":"Milk","__v":{"$numberInt":"0"}}
